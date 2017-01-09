@@ -7,14 +7,19 @@
         });
         
         $stateProvider
-            .state('home', {
+            .state('Room', {
                 url: '/',
+				controller: 'RoomCtrl as Room',
                 templateUrl: '/templates/home.html'
             });
            
     }
     
     angular
-         .module('Chit Chat', ['ui.router', 'firebase'])
+         .module('blocChat', ['ui.router', 'firebase'])
          .config(config);
  })();
+
+
+
+ 
