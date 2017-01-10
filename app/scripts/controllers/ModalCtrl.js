@@ -26,5 +26,5 @@
 
      angular
          .module('blocChat')
-         .controller('ModalCtrl', ['RoomCtrl', 'Room', 'ui.bootstrap', ModalCtrl]);
+         .controller('ModalCtrl', ModalCtrl);
  })();
