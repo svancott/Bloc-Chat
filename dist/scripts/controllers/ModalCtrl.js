@@ -1,13 +1,14 @@
 (function() {
-     function ModalCtrl($scope, $uibModal) {
-		this.hi = function() {
+     function ModalCtrl($uibModalInstance) {
+		this.closeModal = function() {
 			console.log("hi");
+			$uibModalInstance.dismiss('cancel');
 		};
 		
      }
 
      angular
          .module('blocChat')
-         .controller('ModalCtrl', ['$scope', '$uibModal', ModalCtrl]);
+         .controller('ModalCtrl', ModalCtrl);
  })();
 

@@ -4,7 +4,7 @@
 		this.openModal = function() {
 			var modalInstance = $uibModal.open({
 				templateUrl: '/templates/modal.html',
-				controller: RoomCtrl
+				controller: 'ModalCtrl'
 			});
 		};
 		
@@ -15,11 +15,15 @@
 		this.hi = function() {
 			console.log("hi");
 		}
+		this.cancelModal = function() {
+			console.log("hi");
+			this.modalInstance.dismiss('cancel');
+		};
      }
 
      angular
          .module('blocChat')
-         .controller('RoomCtrl', ['Room', '$uibModal',RoomCtrl]);
+         .controller('RoomCtrl', ['Room', '$uibModal', RoomCtrl]);
  })();
 
 

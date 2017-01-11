@@ -11,14 +11,14 @@
                 url: '/',
 				controller: 'RoomCtrl as roomData',
                 templateUrl: '/templates/home.html'
-            });
+            })
 		
-		//	.state('modal', {
-		//		url: '/',
-		//		controller: "ModalCtrl as modal",
-		//		templateUrl: '/templates/modal.html'
+			.state('modal', {
+				
+				
+				templateUrl: '/templates/modal.html'
 			
-		//	});
+			});
            
     }
     
