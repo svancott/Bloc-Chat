@@ -1,11 +1,10 @@
 
 <body>
-<div ng-controller="ModalCtrl">
-<h2 class="text-center">Create New Room</h2>
-	<button ng-click="open()" class="btn btn-warning">pop up</button>
+<div>
+<button type="button" class="btn btn-default" ng-click="roomData.openModal()">Create new room!</button>
 </div>
 <table>
-	 <tr ng-repeat="room in rooms">
+	 <tr ng-repeat="room in roomData.rooms">
 		<td>{{room.$value}}</td>
 	 </tr>
 </table>

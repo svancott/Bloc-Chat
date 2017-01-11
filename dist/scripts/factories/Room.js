@@ -4,14 +4,14 @@
 		var rooms = $firebaseArray(ref);
 		
 	
-		var createRoom = function() {
-			rooms.$add({ room4: "room4" })
+		var createRoom = function(roomName) {
+			rooms.$add({ name: roomName, dateCreated: Firebase.ServerValue.TIMESTAMP });
 		};
 		
 		
 		return {
-			all: rooms
-			
+			all: rooms,
+			create: createRoom
 		};
 	}
 	

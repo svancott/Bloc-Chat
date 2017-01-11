@@ -12,11 +12,18 @@
 				controller: 'RoomCtrl as roomData',
                 templateUrl: '/templates/home.html'
             });
+		
+		//	.state('modal', {
+		//		url: '/',
+		//		controller: "ModalCtrl as modal",
+		//		templateUrl: '/templates/modal.html'
+			
+		//	});
            
     }
     
     angular
-         .module('blocChat', ['ui.router', 'firebase', 'ui.bootstrap'])
+         .module('blocChat', ['ui.bootstrap', 'ui.router', 'firebase'])
          .config(config);
  })();
 

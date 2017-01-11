@@ -1,12 +1,22 @@
 (function() {
-     function RoomCtrl(Room, $scope) {
-        $scope.rooms = Room.all;
+     function RoomCtrl(Room, $uibModal) {
+        this.rooms = Room.all;
+		this.openModal = function() {
+			console.log("scope.open called");
+			var modalInstance = $uibModal.open({
+				templateUrl: '/templates/modal.html'
+			});
+		};
 		
+		var createRoom = function(roomName) {
+			console.log("creating room");
+			rooms.$add({ name: roomName, dateCreated: Firebase.ServerValue.TIMESTAMP });
+		};
      }
 
      angular
          .module('blocChat')
-         .controller('RoomCtrl', ['Room', '$scope', RoomCtrl]);
+         .controller('RoomCtrl', ['Room', '$uibModal',RoomCtrl]);
  })();
 
 
