@@ -1,6 +1,8 @@
 (function() {
-     function RoomCtrl(Room, $uibModal) {
+     function RoomCtrl(Room, Message, $uibModal) {
         this.rooms = Room.all;
+		this.messages = Message.all;
+		  
 		 
 		this.openModal = function() {
 			var modalInstance = $uibModal.open({
@@ -14,7 +16,7 @@
 
      angular
          .module('blocChat')
-         .controller('RoomCtrl', ['Room', '$uibModal', RoomCtrl]);
+         .controller('RoomCtrl', ['Room', 'Message', '$uibModal', RoomCtrl]);
  })();
 
 

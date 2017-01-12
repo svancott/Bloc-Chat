@@ -3,9 +3,15 @@
 <div>
 <button type="button" class="btn btn-default" ng-click="roomData.openModal()">Create new room!</button>
 </div>
-<table>
-	 <tr ng-repeat="room in roomData.rooms">
-		<td>{{room.name}}</td>
-	 </tr>
-</table>
+<div>
+	 <div ng-repeat="room in roomData.rooms">
+		<a>{{room.name}}</a>
+	</div>
+<div ng-repeat="messages in roomData.messages">
+	<a ng-click="m = !m">Don't show</a>
+	<p ng-show="m">{{messages.content}}</p>
+</div>
+
+	
+</div>
 </body> 
