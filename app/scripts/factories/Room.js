@@ -5,7 +5,10 @@
 		
 	
 		var createRoom = function(roomName) {
-			rooms.$add({ name: roomName, dateCreated: Firebase.ServerValue.TIMESTAMP });
+			rooms.$add({
+				name: roomName,
+				dateCreated: firebase.database.ServerValue.TIMESTAMP
+			});
 		};
 		
 		

@@ -1,24 +1,15 @@
 (function() {
      function RoomCtrl(Room, $uibModal) {
         this.rooms = Room.all;
+		 
 		this.openModal = function() {
 			var modalInstance = $uibModal.open({
 				templateUrl: '/templates/modal.html',
-				controller: 'ModalCtrl'
+				controller: 'ModalCtrl',
+				controllerAs: '$modal'
 			});
 		};
 		
-		this.createRoom = function(roomName) {
-			console.log("creating room");
-			rooms.$add({ name: roomName, dateCreated: Firebase.ServerValue.TIMESTAMP });
-		};
-		this.hi = function() {
-			console.log("hi");
-		}
-		this.cancelModal = function() {
-			console.log("hi");
-			this.modalInstance.dismiss('cancel');
-		};
      }
 
      angular

@@ -15,7 +15,8 @@
 		
 			.state('modal', {
 				
-				
+				url: '/',
+				contorller: 'ModalCtrl as modal',
 				templateUrl: '/templates/modal.html'
 			
 			});
