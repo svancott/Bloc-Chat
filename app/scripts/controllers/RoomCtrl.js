@@ -3,7 +3,6 @@
         this.rooms = Room.all;
 		this.messages = Message.all;
 		  
-		 
 		this.openModal = function() {
 			var modalInstance = $uibModal.open({
 				templateUrl: '/templates/modal.html',
