@@ -2,15 +2,29 @@
 <div>
 <button type="button" class="btn btn-default" ng-click="roomData.openModal()">Create new room!</button>
 </div>
-<div>
-	 <div ng-repeat="room in roomData.rooms">
+<!--<p>{{roomData.getMessages() | json}}</p>-->
+
+	<div ng-repeat="room in roomData.rooms">
 		<a>{{room.name}}</a>
+<!--		<a>{{roomData.messages}}</a>-->
+<!--
+		<div ng-repeat messages in roomData.messages>
+			{{messages.messages($id)}}	
+		</div>
+-->
 		
 	
+<!--
 		 <div ng-repeat="messages in roomData.messages">
-			<p>{{messages.content}}></p>
+			<p>{{messages | json}}></p>
 		 </div>
-</div>
+-->
+		 
+	</div>
+<!--	<p>{{roomData.getMessages("-KaHyV1KR0vD9Qyh2ajz")}}</p>-->
 	
-</div>
+		<div class="container"> 
+			<h2>{{roomData.rooms[0].name}}</h2>
+			<p> {{roomData.messages[0].content}} </p>
+		</div>
 </body> 

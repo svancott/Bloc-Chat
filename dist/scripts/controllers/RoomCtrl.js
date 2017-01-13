@@ -1,9 +1,10 @@
 (function() {
      function RoomCtrl(Room, Message, $uibModal) {
         this.rooms = Room.all;
-		this.messages = Message.all;
-		this.getMessages = Message.getByRoomId;
-		  
+		this.getMessages = function (roomId) {
+			Message.getByRoomId("'" + roomId + "'");
+		};
+		this.messages = Message.messages
 		this.openModal = function() {
 			var modalInstance = $uibModal.open({
 				templateUrl: '/templates/modal.html',
@@ -11,6 +12,7 @@
 				controllerAs: '$modal'
 			});
 		};
+		 
 		
      }
 
