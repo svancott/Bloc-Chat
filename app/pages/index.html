@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-	<a ui-sref="home">Bloc Chat</a>
-<!--<a ui-sref="modal">Create new room</a>-->
-    
+	<h1>Bloc Chat</h1>
+
+    	<span>
+			<ui-view></ui-view>
+		</span>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
@@ -19,11 +21,7 @@
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 
-	
-	
-	
-    
-	
+
 <script>
   // Initialize Firebase
   var config = {
@@ -42,10 +40,17 @@
 	<script src="/scripts/controllers/ModalCtrl.js"></script>
 	
 	
+<div ng-controller="RoomCtrl as roomData">
+<div>
+<button type="button" class="btn btn-default" ng-click="roomData.openModal()">Create new room!</button>
+</div>
+<!--<p>{{roomData.getMessages() | json}}</p>-->
 
-	
-	<ui-view></ui-view>
-	
+	<div ng-repeat="room in roomData.rooms">
+		<a>{{room.name}}</a>
+	</div>
+		
+	</div>
 </body>
 </html>
 
