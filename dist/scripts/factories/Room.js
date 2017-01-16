@@ -10,8 +10,7 @@
 				dateCreated: firebase.database.ServerValue.TIMESTAMP
 			});
 		};
-		
-		
+		 
 		return {
 			all: rooms,
 			create: createRoom

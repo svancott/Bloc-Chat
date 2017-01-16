@@ -1,0 +1,13 @@
+.left { border: 1px solid blue;
+position: absolute; height: auto; width: 200px; left: 0; right: auto; top: 0; bottom: 0;
+}
+
+.right {
+position: absolute; height: auto; width: auto; left: 200px; right: 0; top: 0; bottom: 0;
+}
+.top { border: 1px solid blue;
+position: absolute; height: 100px; width: auto; left: 0; right: 0; top: 0; bottom: auto;
+}
+.main { border: 1px solid blue;
+position: absolute; height: auto; width: auto; left: 0; right: 0; top: 100px; bottom: 0;
+} 
