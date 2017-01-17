@@ -1,5 +1,5 @@
 (function() {
-	function Room($firebaseArray) {
+	function Room($firebaseArray, $firebaseObject) {
 		var ref = firebase.database().ref().child("rooms");
 		var rooms = $firebaseArray(ref);
 		
@@ -10,15 +10,25 @@
 				dateCreated: firebase.database.ServerValue.TIMESTAMP
 			});
 		};
-		 
+		
+		var getRoom = function(roomId) {
+		
+			$firebaseArray(firebase.database().ref().child("messages").orderByChild("roomId").equalTo(roomId))
+			};
+		
+//		var getRoom = function(roomId) {
+//		$firebaseObject(ref.child(roomId))
+//		 // ref.child(roomId)
+//		};
 		return {
 			all: rooms,
-			create: createRoom
+			create: createRoom,
+			getRoom: getRoom
 			
 		};
 	}
 	
 	angular
 		.module('blocChat')
-		.factory('Room', ['$firebaseArray', Room]);
+		.factory('Room', ['$firebaseArray', '$firebaseObject', Room]);
 })();
