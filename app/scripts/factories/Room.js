@@ -11,20 +11,10 @@
 			});
 		};
 		
-		var getRoom = function(roomId) {
-		
-			$firebaseArray(firebase.database().ref().child("messages").orderByChild("roomId").equalTo(roomId))
-			};
-		
-//		var getRoom = function(roomId) {
-//		$firebaseObject(ref.child(roomId))
-//		 // ref.child(roomId)
-//		};
 		return {
 			all: rooms,
-			create: createRoom,
-			getRoom: getRoom
-			
+			create: createRoom
+		
 		};
 	}
 	
