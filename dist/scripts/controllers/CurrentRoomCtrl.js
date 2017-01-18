@@ -9,10 +9,14 @@
 			return vm.roomName
 			console.log(roomId)
 		} 
+		
+		vm.name = $firebaseObject(roomsRef.child(vm.roomId));
+		 
 		vm.getCurrentRoom = function() {
 			vm.currentRoom = Room.getRoom(vm.roomId);
 			console.log("current room:" + vm.currentRoom);
 		}
+		vm.current = Room.getRoom(vm.roomId)
 		
 			
 //			function() {
@@ -21,14 +25,7 @@
 //			console.log("current room:" + vm.currentRoom)
 //		}
 		
-		vm.getRoom = function(roomId) {
-			
-			
-			vm.room = $firebaseArray(ref.child(roomId));
-			
-			return vm.room;
-			console.log(vm.room);
-		}
+		vm.room = $firebaseArray(ref.child(vm.roomId));
 
      }
 

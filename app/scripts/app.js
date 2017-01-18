@@ -11,6 +11,7 @@
                 url: '/rooms/:roomId',
 				controller: 'CurrentRoomCtrl as $currentRoom',
                 templateUrl: '/templates/home.html'
+//				onEnter: $currentRoom.getRoomName($currentRoom.roomId);
             })
 		
 			.state('modal', {
