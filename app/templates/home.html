@@ -1,7 +1,12 @@
 <body>
 	<div class="right"> 
-		<a ng-click="$currentRoom.getCurrentRoom()">{{$currentRoom.roomId}}</a>
-		<p>{{$currentRoom.currentRoom | json}}</p>
+<!--		<a ng-click="$currentRoom.getRoom($currentRoom.roomId)">{{$currentRoom.roomId}}</a>-->
+		<a ng-click="$currentRoom.getRoomName($currentRoom.roomId)">{{$currentRoom.roomId}}</a>
+		
+		<a ng-click="$currentRoom.getRoom($currentRoom.roomId)">{{$currentRoom.roomName.name | json}}</a>
+		<div ng-repeat="messages in $currentRoom.room">
+				<p>{{messages.content}}</p>
+			</div>
 <!--
 		<h2>{{$currentRoom.currentRoom.name}}</h2>
 		<p>{{$currentRoom.currentRoom.content}}</p>
