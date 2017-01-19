@@ -14,7 +14,9 @@
 			<button type="button" class="btn btn-default" ng-click="roomData.openModal()">Create new room!</button>
 
 			<div ng-repeat="room in roomData.rooms">
-				<a ui-sref="home({roomId: room.$id})" >{{room.name}}</a>
+				<a ui-sref="home({roomId: room.$id})">
+					{{room.name}}
+				</a>
 			</div>
 
 		</div>
@@ -46,7 +48,7 @@
   firebase.initializeApp(config);
 </script>
 	<script src="/scripts/app.js"></script>
-	<script src="scripts/factories/Room.js"></script>
+	<script src="/scripts/factories/Room.js"></script>
 	<script src="/scripts/controllers/RoomCtrl.js"></script>
 	<script src="/scripts/controllers/ModalCtrl.js"></script>
 	<script src="/scripts/controllers/CurrentRoomCtrl.js"></script>
