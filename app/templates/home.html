@@ -1,14 +1,16 @@
 <body>
 	<div class="right">
 		
-<!--		<a ng-click="$currentRoom.getRoomName($currentRoom.roomId)">{{$currentRoom.roomId}}</a>-->
-		
 		<a>{{$currentRoom.name.name | json}}</a>
 		
-		<div ng-repeat="messages in $currentRoom.room">
+		<div ng-repeat="messages in $currentRoom.getByRoomId">
 			<p>{{messages.username}}</p>
 			<p>{{messages.content}}</p>
 		</div>
-		
+		<div>
+			<input type="text" ng-model="$currentRoom.newMessage">
+			
+			<button type="button" class="btn btn-default" ng-click="$currentRoom.send($currentRoom.newMessage)">Send Message!</button>
+		</div>
 	</div>
 </body> 

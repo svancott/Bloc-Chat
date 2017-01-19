@@ -1,5 +1,5 @@
 (function() {
-     function CurrentRoomCtrl($state, Room, $firebaseArray, $firebaseObject) {
+     function CurrentRoomCtrl($state, Room, $firebaseArray, $firebaseObject, $cookies) {
         var ref = firebase.database().ref("messages");
 		var vm = this;
 		vm.roomId = $state.params.roomId;
@@ -16,6 +16,14 @@
 			vm.currentRoom = Room.getRoom(vm.roomId);
 			console.log("current room:" + vm.currentRoom);
 		}
+		vm.getByRoomId = $firebaseArray(ref.child(vm.roomId));
+		vm.send = function(newMessage) {
+			vm.getByRoomId.$add({
+				content: newMessage,
+				username: $cookies.get('blocChatCurrentUser')
+			});
+			vm.newMessage = '';
+		}
 		
 		
 			
@@ -25,11 +33,11 @@
 //			console.log("current room:" + vm.currentRoom)
 //		}
 		
-		vm.room = $firebaseArray(ref.child(vm.roomId));
+		
 
      }
 
      angular
          .module('blocChat')
-         .controller('CurrentRoomCtrl', ['$state', 'Room', '$firebaseArray', '$firebaseObject', CurrentRoomCtrl]);
+         .controller('CurrentRoomCtrl', ['$state', 'Room', '$firebaseArray', '$firebaseObject', '$cookies', CurrentRoomCtrl]);
  })();
