@@ -1,11 +1,12 @@
 <body>
 	<div class="right">
 		
-		<a>{{$currentRoom.name.name | json}}</a>
+		<h2 class="roomName">{{$currentRoom.name.name}}</h2>
 		
-		<div ng-repeat="messages in $currentRoom.getByRoomId">
-			<p>{{messages.username}}</p>
-			<p>{{messages.content}}</p>
+		<div class="messageBody" ng-repeat="messages in $currentRoom.getByRoomId">
+			<h5 class="username">{{messages.username}}:</h5> 
+			<p class="userMessages">{{messages.content}}</p>
+			
 		</div>
 		<div>
 			<input type="text" ng-model="$currentRoom.newMessage">

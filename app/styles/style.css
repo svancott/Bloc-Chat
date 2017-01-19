@@ -11,3 +11,28 @@ position: absolute; height: 100px; width: auto; left: 0; right: 0; top: 0; botto
 .main { border: 1px solid blue;
 position: absolute; height: auto; width: auto; left: 0; right: 0; top: 100px; bottom: 0;
 } 
+
+.roomName {
+	color:darkgreen;
+	font-weight: bold;
+}
+
+.username {
+	display: inline;
+	color: blueviolet;
+}
+
+.userMessages {
+	display: inline;
+	color: cornflowerblue;
+}
+
+.messageBody {
+	padding:3px;
+}
+
+h1 {
+	font-family:fantasy;
+	color:firebrick;
+	font-size: 60px;
+}
