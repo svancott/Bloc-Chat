@@ -1,7 +1,7 @@
 (function() {
-     function ModalCtrl($uibModalInstance, Room) {
-		 var vm = this;
-		 vm.newRoom = {};
+	function ModalCtrl($uibModalInstance, Room) {
+		var vm = this;
+		vm.newRoom = {};
 		 
 		vm.createRoom = function() {
 			// Pass this to Firebase
@@ -11,8 +11,8 @@
 		 
 		vm.closeModal = function() {
 			$uibModalInstance.dismiss('cancel');
-		};
-		//vm.test = "Test Modal Data";
+		}
+		
      }
 
      angular

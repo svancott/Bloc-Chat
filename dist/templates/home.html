@@ -1,11 +1,11 @@
 <body>
 	<div class="right">
 		
-		<h2 class="roomName">{{$currentRoom.name.name}}</h2>
+		<h2 class="roomName">{{$currentRoom.roomName.name}}</h2>
 		
-		<div class="messageBody" ng-repeat="messages in $currentRoom.getByRoomId">
-			<h5 class="username">{{messages.username}}:</h5> 
-			<p class="userMessages">{{messages.content}}</p>
+		<div class="messageBody" ng-repeat="message in $currentRoom.getByRoomId">
+			<h5 class="username">{{message.username}}:</h5> 
+			<p class="userMessages">{{message.content}}</p>
 			
 		</div>
 		<div>
