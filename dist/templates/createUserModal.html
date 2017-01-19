@@ -2,9 +2,10 @@
 	<h3 class="modal-title" id="modal-title">Enter a user name:</h3>
 </div>
 <div class="modal-body" id="modal-body">
-	<input type="text" ng-model="$modal.newRoom.name">
+	<input type="text" ng-model="$createUserModal.newUser.name">
+	<p>This name will be displayed when you send messages: {{$createUserModal.newUser.name}}</p>
 </div>
 <div class="modal-footer">
-	<button class="btn btn-primary" type="button" ng-click="$modal.createRoom()">OK</button>
-	
+	<button class="btn btn-primary" type="button" ng-click="$createUserModal.createUser($createUserModal.newUser.name)">OK</button>
+	{{$createUserModal.currentUser}}
 </div>

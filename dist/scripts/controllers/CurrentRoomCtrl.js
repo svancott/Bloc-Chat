@@ -16,7 +16,7 @@
 			vm.currentRoom = Room.getRoom(vm.roomId);
 			console.log("current room:" + vm.currentRoom);
 		}
-		vm.current = Room.getRoom(vm.roomId)
+		
 		
 			
 //			function() {

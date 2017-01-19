@@ -11,15 +11,8 @@
                 url: '/rooms/:roomId',
 				controller: 'CurrentRoomCtrl as $currentRoom',
                 templateUrl: '/templates/home.html'
-            })
-		
-			.state('modal', {
-				
-				url: '/',
-				contorller: 'ModalCtrl as modal',
-				templateUrl: '/templates/modal.html'
-			});
-           
+            });
+
     }
 	
 	function BlocChatCookies($cookies, $uibModal) {
@@ -28,7 +21,9 @@
 			$uibModal.open({
 				templateUrl: '/templates/createUserModal.html',
 				controller: 'CreateUserModalCtrl',
-				controllerAs: '$createUserModal'
+				controllerAs: '$createUserModal',
+				backdrop: 'static',
+				keyboard: 'false'
 			});
 		}
 	}
