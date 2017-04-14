@@ -1,7 +1,8 @@
 ## Bloc Chat
 
-![smiley logo](https://s.yimg.com/ny/api/res/1.2/FJNB95lIT8U5cyCzypUfnA--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NjMwO2lsPXBsYW5l/http://l.yimg.com/os/publish-images/lifestyles/2014-04-15/8b9a9de0-c484-11e3-ac71-cf30696dc896_Classic-smiley-emoji.jpg)
+![smiley logo](https://www.chargify.com/images/icons/grinning-052e9db6.png)
 
+Welcome to Bloc Chat!
 A real-time chat application built with AngularJS and Firebase.
 
 After building my [Bloc Jams](https://github.com/svancott/bloc-jams-angular) app using AngularJS, I wanted to build another app using the framework, and decided on **_Bloc Chat_**. It’s a real time chat application built with Angular that uses Google's Firebase Cloud Messaging.
@@ -44,8 +45,8 @@ While building the app, I tried to keep my files organized as well as possible. 
 
 I had a lot of fun building **_Bloc Chat_** and learned a lot along the way. I enjoyed using Firebase for my database and would definitely recommend it. I am continually impressed by the power and versatility of the AngularJS framework. The more I code and practice building apps, the more I want to learn! With the right tools, anything is possible!
 
-Feel free to check out the finished product:
-[Bloc Chat](https://github.com/svancott/Bloc-Chat)
-
-or more projects like this at my site:
+Feel free to check out my site:
 [SteveVancott.com](http://SteveVancott.com)
+
+or some more of my projects:
+[Github](https://github.com/svancott)
