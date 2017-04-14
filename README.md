@@ -1,8 +1,8 @@
 ## Bloc Chat
 
-![smiley logo](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwigxePO9aTTAhWC4CYKHXzGAnQQjRwIBw&url=https%3A%2F%2Fuk.style.yahoo.com%2Fwhat-your-favourite-emoji-says-about-you-101720267.html&psig=AFQjCNF-NCTwSBenTaz-54gaYrjgb3y2VQ&ust=1492292676234904)
+![smiley logo](https://s.yimg.com/ny/api/res/1.2/FJNB95lIT8U5cyCzypUfnA--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NjMwO2lsPXBsYW5l/http://l.yimg.com/os/publish-images/lifestyles/2014-04-15/8b9a9de0-c484-11e3-ac71-cf30696dc896_Classic-smiley-emoji.jpg)
 
-A real-time chat application built with AngularJS and Firebase. [Bloc Chat](http://http://stevevancott.com/portfolio/blocChat/).
+A real-time chat application built with AngularJS and Firebase.
 
 After building my [Bloc Jams](https://github.com/svancott/bloc-jams-angular) app using AngularJS, I wanted to build another app using the framework, and decided on **_Bloc Chat_**. It’s a real time chat application built with Angular that uses Google's Firebase Cloud Messaging.
 
@@ -13,11 +13,11 @@ I hit a few roadblocks while making **_Bloc Chat_** and did quite a bit of resea
 To resolve the issue I turned to `$state params`. In index.html, I display the list of available rooms by using an ngRepeat. My Room Controller has a Room service injected in it which gets the data from the rooms path on Firebase. Each room name in the list of rooms displays as a link with an `<a>` tag, so I added a ui-sref for each link that inserts that room’s unique room ID (created by Firebase) to the url when that room is clicked.
 
 ```javascript
-	<div ng-repeat="room in roomData.rooms">
-		<a ui-sref="home({roomId: room.$id})">
-			{ { room.name } }
-		</a>
-	</div>
+<div ng-repeat="room in roomData.rooms">
+	<a ui-sref="home({roomId: room.$id})">
+		{ { room.name } }
+	</a>
+</div>
 ```
 In my app.js, I use the $stateProvider service to format my ‘home’ state.
 
@@ -46,3 +46,6 @@ I had a lot of fun building **_Bloc Chat_** and learned a lot along the way. I e
 
 Feel free to check out the finished product:
 [Bloc Chat](https://github.com/svancott/Bloc-Chat)
+
+or more projects like this at my site:
+[SteveVancott.com](http://SteveVancott.com)
