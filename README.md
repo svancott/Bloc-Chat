@@ -1,4 +1,4 @@
-## Bloc Chat
+# Bloc Chat
 
 ![smiley logo](https://www.chargify.com/images/icons/grinning-052e9db6.png)
 
