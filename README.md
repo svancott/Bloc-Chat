@@ -1,164 +1,48 @@
-## Bloc Frontend Project Starter
+## Bloc Chat
 
-A starter application for student projects in Bloc's [Frontend Web Development Course](https://www.bloc.io/frontend-development-bootcamp).
+![smiley logo](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwigxePO9aTTAhWC4CYKHXzGAnQQjRwIBw&url=https%3A%2F%2Fuk.style.yahoo.com%2Fwhat-your-favourite-emoji-says-about-you-101720267.html&psig=AFQjCNF-NCTwSBenTaz-54gaYrjgb3y2VQ&ust=1492292676234904)
 
-## Configuration
+A real-time chat application built with AngularJS and Firebase. [Bloc Chat](http://http://stevevancott.com/portfolio/blocChat/).
 
-Start by cloning the repository:
+After building my [Bloc Jams](https://github.com/svancott/bloc-jams-angular) app using AngularJS, I wanted to build another app using the framework, and decided on **_Bloc Chat_**. It’s a real time chat application built with Angular that uses Google's Firebase Cloud Messaging.
+
+Firebase is a mobile platform designed to help develop high-quality apps. I used it to store the database for **_Bloc Chat_** and found it very useful. Once I got the hang of the `$firebaseArray` service, it was easy to pull the data that I wanted off the database. I used UI Bootstrap to create the app’s modals. UI Bootstrap and its many components are a great help in developing apps with Angular. Lastly, to make and store the users' screen names, I used `ngCookies` and the `$cookies` service, which make it easy to store information in the browser for future use.
+
+I hit a few roadblocks while making **_Bloc Chat_** and did quite a bit of research while trying to get unstuck. One of the main issues I had was displaying each chat room's messages individually when the name of the room was clicked. According to Firebase, it’s good practice to keep your data structures as flat as possible, meaning don’t nest your data too deeply. Although for my purposes, nesting all the data would have been **much** easier, I decided I wanted to follow their advice and keep my data structures nice and flat. I made separate paths for the rooms and messages, but then had to figure out how to connect the two. How could I get the messages from a certain room to display while being stored in a completely separate path?
+
+To resolve the issue I turned to `$state params`. In index.html, I display the list of available rooms by using an ngRepeat. My Room Controller has a Room service injected in it which gets the data from the rooms path on Firebase. Each room name in the list of rooms displays as a link with an `<a>` tag, so I added a ui-sref for each link that inserts that room’s unique room ID (created by Firebase) to the url when that room is clicked.
+
+```javascript
+	<div ng-repeat="room in roomData.rooms">
+		<a ui-sref="home({roomId: room.$id})">
+			{ { room.name } }
+		</a>
+	</div>
+```
+In my app.js, I use the $stateProvider service to format my ‘home’ state.
+
+
+
+```javascript
+$stateProvider
+	.state('home', {
+		url: '/rooms/:roomId',
+		controller: 'CurrentRoomCtrl as $currentRoom',
+		templateUrl: '/templates/home.html'
+});
 
 ```
-$ git clone https://github.com/Bloc/bloc-frontend-project-starter.git <your-frontend-project-name>
+So let’s say that you're on the landing page of **_Bloc Chat_**. The list of available rooms is automatically displayed using the data from our Firebase database. If you click on ‘Steve’s Room’, the ‘home’ template will display in the view. In our `$stateProvider` service we made the url for the ‘home’ state to include the roomID. We can now take that roomID from the url and use it to call the `$firebaseArray` service, but this time on the ‘messages’ path. All that's left to do now is make the roomId a method in our Messages Controller by pulling it from $state.params, and then put that into the Firebase's child() method. It looks like this:
+
+```javascript
+this.roomId = $state.params.roomId;
+this.getMessagesByRoomId = $firebaseArray(firebase.database().ref("messages").child(this.roomId));
 ```
+And there you have it, each room displaying it own messages. Easier said than done :)
 
-The project uses Grunt to run tasks in development. Thoroughly review our [resource on using Grunt](https://www.bloc.io/resources/using-grunt) before using this application. It may also help to review [our resource on NPM and `package.json` files](https://www.bloc.io/resources/npm-and-package-json).
+While building the app, I tried to keep my files organized as well as possible. Although it’s just a simple app for now with a relatively small number of scripts, I know it’s good practice to keep them all in order, so I have separate directories for my templates, controllers and services. By keeping an app organized like this, its easy to expand it later if need be, or if other developers want to work on it.
 
-Install the project dependencies by running:
+I had a lot of fun building **_Bloc Chat_** and learned a lot along the way. I enjoyed using Firebase for my database and would definitely recommend it. I am continually impressed by the power and versatility of the AngularJS framework. The more I code and practice building apps, the more I want to learn! With the right tools, anything is possible!
 
-```
-$ npm install
-```
-
-## Run the Application
-
-Run the application using the Gruntfile's `default` task:
-
-```
-$ grunt
-```
-
-The default task runs a simple server on port 3000. To view it in a any browser, go to [http://localhost:3000](http://localhost:3000).
-
->Note that unless the application is run [via Live Preview in Brackets](#use-in-brackets-live-preview), the browser will need to be refreshed to view the most recent changes.
-
-### Using without Angular
-
-By default, the application is configured to be used in a Single-Page Application (SPA) with AngularJS. If you're working on a project that doesn't use AngularJS, see the instructions below [for configuring the server to run in a non-SPA](#configure-server-for-non-spas).
-
-## Use in Brackets Live Preview
-
-To use the application with the Live Preview functionality of the Brackets text editor, go to __File > Project Settings__ and add `http://localhost:3000` to the Base URL field.
-
-![Screenshot of project settings URL in Brackets](https://bloc-global-assets.s3.amazonaws.com/images-frontend/screenshots/bloc-frontend-project-starter/live_preview_project_settings.png)
-
-The text in the application will not update on every keystroke, but changes will automatically push when you save the file.
-
-## Directory Structure
-
-```
-├── Gruntfile.js
-├── LICENSE
-├── Procfile
-├── README.md
-├── app
-│   ├── assets
-│   │   └── images
-│   │       └── bloc-logo-white.png
-│   ├── pages
-│   │   └── index.html
-│   ├── scripts
-│   │   └── app.js
-│   ├── styles
-│   │   └── style.css
-│   └── templates
-│       └── home.html
-├── package.json
-└── server.js
-```
-
-All code, styles, markup, and assets should be saved to the `app` directory. Saving changes creates a new directory, `dist`, that holds final copies of the application content. `dist` is the directory the server uses to serve the content displayed by the browser. __Do not edit files in `dist`__ because it will reset changes to your work every time you save. Restrict all edits to files in the `app` directory.
-
-### Assets/Images
-
-Add images to the `app/assets/images` directory. To reference images in HTML, use the path `/assets/images/<image file name>.jpg`. For example, to include the image called `bloc-white-logo.png`, the path for the `src` attribute in the HTML would be:
-
-```html 
-<img src="/assets/images/bloc-white-logo.png">
-```
-
-__Note:__ A sample image has been added to `app/images`. To remove the image from the application, run the following command from the root of repo:
-
-```bash
-$ rm -f app/assets/images/bloc-white-logo.png
-```
-
-To reference any other assets, like the music in Bloc Jams, use the path `assets/<asset-type>/<asset-file>`. The Gruntfile is pre-configured to handle assets in a subfolder with the `.mp3` extension.
-
->See lines 14 and 35 of `Gruntfile.js` for the accepted file extensions of assets.
-
-### Difference between Pages and Templates
-
-The `templates` directory should hold any HTML files used as templates in Angular states configured by UI Router. All other HTML files belong in the `pages` directory.
-
-### Procfile
-
-The `Procfile` is a file for [providing instructions to Heroku servers](https://devcenter.heroku.com/articles/procfile) that run after pushing new code to the repository. __Do not change the contents of the Procfile__ or Heroku will throw an error when you attempt to visit your application.
-
->For more information about how to use Heroku with Bloc's frontend applications, see our [resource on using Heroku](https://www.bloc.io/resources/using-heroku-frontend).
-
-## Configure Server for Non-SPAs
-
-By default, `bloc-frontend-project-starter` is configured to be used with SPAs. If you're not building a project with Angular, then modify `server.js` with the following:
-
-```diff
-var Hapi = require('hapi'),
-    path = require('path'),
-    port = process.env.PORT || 3000,
-    server = new Hapi.Server(port),
-    routes = {
-        css: {
-            method: 'GET',
-            path: '/styles/{path*}',
-            handler: createDirectoryRoute('styles')
-        },
-        js: {
-            method: 'GET',
-            path: '/scripts/{path*}',
-            handler: createDirectoryRoute('scripts')
-        },
-        assets: {
-            method: 'GET',
-            path: '/assets/{path*}',
-            handler: createDirectoryRoute('assets')
-        },
-        templates: {
-            method: 'GET',
-            path: '/templates/{path*}',
-            handler: createDirectoryRoute('templates')
-        },
--        spa: {
-+        staticPages: {
-             method: 'GET',
-             path: '/{path*}',
--            handler: {
--                file: path.join(__dirname, '/dist/index.html')
--            }
-+            handler: createDirectoryRoute('/')
-         }
-     };
- 
--server.route([ routes.css, routes.js, routes.images, routes.templates, routes.spa ]);
-+server.route([ routes.css, routes.js, routes.images, routes.templates, routes.staticPages ]);
-...
-```
-
-Optionally, delete the `templates` directory and all references to it in `Gruntfile.js` to remove unnecessary files (templates are only useful for SPAs). However, keeping them in the repository won't affect your application.
-
-## Grunt plugins
-
-A list of the Grunt plugins in this application.
-
-#### Watch
-
-[Grunt watch](https://github.com/gruntjs/grunt-contrib-watch) watches for changes to file content and then executes Grunt tasks when a change is detected.
-
-#### Copy
-
-[Grunt copy](https://github.com/gruntjs/grunt-contrib-copy) copies files from our development folders and puts them in the folder that will be served with the frontend of your application.
-
-#### Clean
-
-[Grunt clean](https://github.com/gruntjs/grunt-contrib-clean) "cleans" or removes all files in your distribution folder (`dist`) so that logic in your stylesheets, templates, or scripts isn't accidentally overridden by previous code in the directory.
-
-#### Hapi
-
-[Grunt Hapi](https://github.com/athieriot/grunt-hapi) runs a server using [`HapiJS`](http://hapijs.com/). Happy is a Node web application framework with robust configuration options.
+Feel free to check out the finished product:
+[Bloc Chat](https://github.com/svancott/Bloc-Chat)
