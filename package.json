@@ -1,16 +1,25 @@
 {
-  "name": "bloc-frontend-project-starter",
-  "version": "0.0.2",
-  "description": "Starter project for the Bloc Frontend Web Development",
+  "name": "ChitChat",
+  "version": "0.0.0",
+  "description": "A real-time chat application built with AngularJS",
+  "private": false,
+
   "repository": {
     "type": "git",
-    "url": "https://github.com/bloc/bloc-frontend-project-starter"
+    "url": "https://github.com/svancott/ChitChat"
   },
+
+  "engines": {
+  "node": "5.1.0",
+  "npm": "3.4.1"
+},
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "grunt test",
+    "postinstall": "bower install"
   },
-  "author": "Bloc Inc",
+  "author": "Stephen VanCott",
   "license": "ISC",
   "dependencies": {
     "hapi": "~7.5.0",
@@ -25,5 +34,11 @@
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-hapi": "^0.8.1"
+  },
+  "dependencies": {
+    "bower": "1.7.1",
+    "express": "4.13.3"
+  },
+  "cacheDirectories": ["node_modules"]
   }
 }

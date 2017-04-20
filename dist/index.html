@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-	<h1 class="title">Chat It Up!</h1>
+	<h1 class="title">The Chit Chat!</h1>
 
     	<div ng-controller="RoomCtrl as roomData">
-			
+
 			<button type="button" class="btn btn-default" ng-click="roomData.openModal()">Create new room!</button>
 
 			<div ng-repeat="room in roomData.rooms">
@@ -23,9 +23,9 @@
 		<span class="right">
 			<ui-view></ui-view>
 		</span>
-	
-	
-	
+
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-cookies.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
@@ -53,7 +53,6 @@
 	<script src="/scripts/controllers/ModalCtrl.js"></script>
 	<script src="/scripts/controllers/CurrentRoomCtrl.js"></script>
 	<script src="/scripts/controllers/CreateUserModalCtrl.js"></script>
-	
+
 </body>
 </html>
-
