@@ -40,5 +40,4 @@
     "express": "4.13.3"
   },
   "cacheDirectories": ["node_modules"]
-  }
 }
