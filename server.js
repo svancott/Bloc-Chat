@@ -1,20 +1,49 @@
-var express = require('express');
-var app = express();
+var Hapi = require('hapi'),
+     path = require('path'),
+     port = process.env.PORT || 3000,
+     server = new Hapi.Server(port),
+     routes = {
+         css: {
+             method: 'GET',
+             path: '/styles/{path*}',
+             handler: createDirectoryRoute('styles')
+         },
+         js: {
+             method: 'GET',
+             path: '/scripts/{path*}',
+             handler: createDirectoryRoute('scripts')
+         },
+         assets: {
+             method: 'GET',
+             path: '/assets/{path*}',
+             handler: createDirectoryRoute('assets')
+         },
+         templates: {
+             method: 'GET',
+             path: '/templates/{path*}',
+             handler: createDirectoryRoute('templates')
+         },
+         spa: {
+             method: 'GET',
+             path: '/{path*}',
+             handler: {
+                 file: path.join(__dirname, '/dist/index.html')
+             }
+         }
+     };
 
-// set the port of our application
-// process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+     server.route([ routes.css, routes.js, routes.assets, routes.templates, routes.spa ]);
+     server.start( onServerStarted );
 
-// make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/app'));
-
-// set the home page route
-app.get('/', function(req, res) {
-
-    // make sure index is in the right directory. In this case /app/index.html
-    res.render('index');
-});
-
-app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + port);
-});
+     function onServerStarted() {
+     console.log( 'Server running on port ', port );
+}
+     function createDirectoryRoute( directory ) {
+     return {
+         directory: {
+             path: path.join(__dirname, '/dist/', directory)
+         }
+     };
+ }
+ 
+ module.exports = server;
