@@ -45,6 +45,8 @@ While building the app, I tried to keep my files organized as well as possible. 
 
 I had a lot of fun building **_ChitChat_** and learned a lot along the way. I enjoyed using Firebase for my database and would definitely recommend it. I am continually impressed by the power and versatility of the AngularJS framework. The more I code and practice building apps, the more I want to learn! With the right tools, anything is possible!
 
+Wanna see the app in production? [ChitChat](https://the-chit-chat.herokuapp.com)
+
 Feel free to check out my site:
 [SteveVancott.com](http://SteveVancott.com)
 
