@@ -7,15 +7,32 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-	<h1 class="title">ChitChat!</h1>
+
+    <a class="site" href="http://stevevancott.com">Check out my site!</a>
+
+	<!-- <h1 class="title">ChitChat!</h1> -->
+
+    <div class="chit">
+      <p class="letter" data-letter="C">C</p>
+      <p class="letter" data-letter="H">H</p>
+      <p class="letter" data-letter="I">I</p>
+      <p class="letter" data-letter="T">T</p>
+    </div>
+    <div class="chat">
+      <p class="letter" data-letter="C">C</p>
+      <p class="letter" data-letter="H">H</p>
+      <p class="letter" data-letter="A">A</p>
+      <p class="letter" data-letter="T">T</p>
+      <p class="letter" data-letter="!">!</p>
+    </div>
 
     	<div ng-controller="RoomCtrl as roomData">
 
-			<button type="button" class="btn btn-default" ng-click="roomData.openModal()">Create new room!</button>
+			<button type="button" class="btn btn-success createButton" ng-click="roomData.openModal()">Create new room!</button>
 
 			<div ng-repeat="room in roomData.rooms">
-				<a ui-sref="home({roomId: room.$id})">
-					{{room.name}}
+				<a class="roomList" ui-sref="home({roomId: room.$id})">
+					<li class="active">{{room.name}}</li>
 				</a>
 			</div>
 

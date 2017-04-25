@@ -1,24 +1,29 @@
 {
   "name": "ChitChat",
-   "version": "0.0.0",
-   "description": "A real-time chat application built with AngularJS",
-   "private": false,
-   "repository": {
-      "type": "git",
-      "url": "https://github.com/svancott/ChitChat"
-    },
-
-    "main": "server.js",
-    "scripts": {
-      "start": "node server.js"
-    },
-
-    "author": "Stephen VanCott",
-    "license": "ISC",
-    "dependencies": {
-      "hapi": "~7.5.0",
-      "grunt-contrib-copy": "~0.5.0",
-      "grunt-contrib-watch": "^0.6.1",
-      "grunt-hapi": "^0.8.1"
-    }
+  "version": "0.0.0",
+  "description": "A real-time chat application built with AngularJS",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svancott/ChitChat"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Stephen VanCott",
+  "license": "ISC",
+  "dependencies": {
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-hapi": "^0.8.1",
+    "hapi": "^7.5.3"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-hapi": "^0.8.1"
+  }
 }

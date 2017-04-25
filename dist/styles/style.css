@@ -4,17 +4,20 @@ position: absolute; height: auto; width: 200px; left: 0; right: auto; top: 0; bo
 
 .right {
 position: absolute; height: auto; width: auto; left: 200px; right: 0; top: 0; bottom: 0;
+
 }
 .top { border: 1px solid blue;
 position: absolute; height: 100px; width: auto; left: 0; right: 0; top: 0; bottom: auto;
 }
 .main { border: 1px solid blue;
 position: absolute; height: auto; width: auto; left: 0; right: 0; top: 100px; bottom: 0;
-} 
+}
 
 .roomName {
 	color:darkgreen;
 	font-weight: bold;
+	font-family: fantasy;
+	font-size: 4rem;
 }
 
 .username {
@@ -31,8 +34,121 @@ position: absolute; height: auto; width: auto; left: 0; right: 0; top: 100px; bo
 	padding:3px;
 }
 
+.roomList {
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+.room {
+	border-left: 6px solid rgb(0, 70, 183);
+	padding-left: 70px;
+	padding-top: 50px
+}
+
+.createButton {
+	margin-bottom: 50px;
+	width: 150px;
+	margin-left: 50px;
+	margin-top: 40px;
+}
+
+.title {
+	color: blue;
+}
+
+.navbar-link{
+	margin-right:20px;
+	margin-top: 10px;
+	font-size: 2rem;
+
+}
+.site{
+	color: rgb(98, 175, 56);
+}
 h1 {
 	font-family:fantasy;
 	color:firebrick;
 	font-size: 60px;
+}
+
+body {
+	margin-left: 50px;
+	background-image: url(../assets/images/sky.jpg);
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:900);
+*, *:before, *:after{
+  box-sizing:border-box;
+}
+body{
+  font-family: 'Lato', sans-serif;
+    ;
+}
+.chit{
+	width: 50%;
+	margin-left: 28px;
+}
+.chat {
+	margin-top: 0;
+	width: 50%;
+}
+
+.letter{
+	margin-bottom: -50px;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 6em;
+  /*margin: 0.2em;*/
+  position: relative;
+  color: #00B4F1;
+  transform-style: preserve-3d;
+  perspective: 400;
+  z-index: 1;
+}
+.letter:before, .letter:after{
+  position:absolute;
+  content: attr(data-letter);
+  transform-origin: top left;
+  top:0;
+  left:0;
+}
+.letter, .letter:before, .letter:after{
+  transition: all 0.3s ease-in-out;
+}
+.letter:before{
+  color: rgb(185, 199, 255);
+  text-shadow:
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-15deg)
+    rotateZ(0deg);
+}
+.letter:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+.letter:hover:before{
+  color: #fafafa;
+  transform:
+    rotateX(0deg)
+    rotateY(-40deg)
+    rotateZ(0deg);
+}
+.letter:hover:after{
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(40deg)
+    rotateZ(0deg)
+    skew(0deg,22deg);
 }

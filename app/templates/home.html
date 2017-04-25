@@ -1,15 +1,15 @@
 
-<div class="right">
+<div class="right room">
 	<h2 class="roomName">{{$currentRoom.roomName.name}}</h2>
 
 	<div class="messageBody" ng-repeat="message in $currentRoom.getByRoomId">
-		<h5 class="username">{{message.username}}:</h5> 
+		<h5 class="username">{{message.username}}:</h5>
 		<p class="userMessages">{{message.content}}</p>
 
 	</div>
 	<div>
 		<input type="text" ng-model="$currentRoom.newMessage">
 
-		<button type="button" class="btn btn-default" ng-click="$currentRoom.send($currentRoom.newMessage)">Send Message!</button>
+		<button type="button" class="btn btn-info" ng-click="$currentRoom.send($currentRoom.newMessage)">Send Message!</button>
 	</div>
 </div>
