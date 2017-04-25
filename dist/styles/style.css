@@ -63,9 +63,7 @@ position: absolute; height: auto; width: auto; left: 0; right: 0; top: 100px; bo
 	font-size: 2rem;
 
 }
-.site{
-	color: rgb(98, 175, 56);
-}
+
 h1 {
 	font-family:fantasy;
 	color:firebrick;
@@ -151,4 +149,18 @@ body{
     rotateY(40deg)
     rotateZ(0deg)
     skew(0deg,22deg);
+}
+
+.site{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	color: #e2930b;
+	font-size: 2rem;
+	font-weight: bold;
+	font-family: fantasy;
+}
+
+.nav-links{
+	margin-right: 10px;
 }

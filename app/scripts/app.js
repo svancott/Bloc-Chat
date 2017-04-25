@@ -5,7 +5,7 @@
                 enabled: true,
                 requireBase: false
         });
-        
+
         $stateProvider
 			.state('home', {
                 url: '/rooms/:roomId',
@@ -14,9 +14,9 @@
             });
 
     }
-	
-	function BlocChatCookies($cookies, $uibModal) {
-		var currentUser = $cookies.get('blocChatCurrentUser');
+
+	function ChitChatCookies($cookies, $uibModal) {
+		var currentUser = $cookies.get('chitChatCurrentUser');
 		if (!currentUser || currentUser === '') {
 			$uibModal.open({
 				templateUrl: '/templates/createUserModal.html',
@@ -27,14 +27,10 @@
 			});
 		}
 	}
-    
+
     angular
          .module('blocChat', ['ui.bootstrap', 'ui.router', 'firebase', 'ngCookies'])
          .config(config)
-		 .run(['$cookies', '$uibModal', BlocChatCookies]);
-	
+		 .run(['$cookies', '$uibModal', ChitChatCookies]);
+
  })();
-
-
-
- 
