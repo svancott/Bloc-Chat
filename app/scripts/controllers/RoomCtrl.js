@@ -10,8 +10,7 @@
 				controllerAs: '$modal'
 			});
 		};
-
-     }
+  }
 
      angular
          .module('blocChat')
