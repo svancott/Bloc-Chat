@@ -5,7 +5,7 @@
 Welcome to ChitChat!
 A real-time chat application built with AngularJS and Firebase.
 
-After building my [Time2Jam](https://github.com/svancott/Time2Jam) app using AngularJS, I wanted to build another app using the framework, and decided on **_ChitChat_**. It’s a real time chat application built with Angular that uses Google's Firebase Cloud Messaging.
+After building my [Time2Jam](http://stevevancott.com/portfolio/time2Jam/) app using AngularJS, I wanted to build another app using the framework, and decided on **_ChitChat_**. It’s a real time chat application built with Angular that uses Google's Firebase Cloud Messaging.
 
 Firebase is a mobile platform designed to help develop high-quality apps. I used it to store the database for **_ChitChat_** and found it very useful. Once I got the hang of the `$firebaseArray` service, it was easy to pull the data that I wanted off the database. I used UI Bootstrap to create the app’s modals. UI Bootstrap and its many components are a great help in developing apps with Angular. Lastly, to make and store the users' screen names, I used `ngCookies` and the `$cookies` service, which make it easy to store information in the browser for future use.
 
@@ -46,12 +46,6 @@ While building the app, I tried to keep my files organized as well as possible. 
 I had a lot of fun building **_ChitChat_** and learned a lot along the way. I enjoyed using Firebase for my database and would definitely recommend it. I am continually impressed by the power and versatility of the AngularJS framework. The more I code and practice building apps, the more I want to learn! With the right tools, anything is possible!
 
 <!-- Wanna see the app in production? [ChitChat](https://the-chit-chat.herokuapp.com) -->
-
-Feel free to check out my site:
-[SteveVancott.com](http://SteveVancott.com)
-
-or some more of my projects:
-[Github](https://github.com/svancott)
 
 # About me
 
